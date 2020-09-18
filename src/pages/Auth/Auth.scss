@@ -23,16 +23,17 @@
     &__box {
         position: relative;
         background-color: $background-grey-dark;
-        width: 500px;
+        width: 400px;
         z-index: 1;
-        padding: 50px, 70px;
+        padding: 80px, 70px;
         border-radius: 10px;
+        text-align: center;
 
         &-logo {
             text-align: center;
 
             img {
-                width: 200px;
+                width: 150px;
             }
         }
     }

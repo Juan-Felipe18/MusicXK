@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Icon, Form, Input } from "semantic-ui-react";
+import { Button, Form, Input } from "semantic-ui-react";
 import firebase from "../../../utils/Firebase";
 import "firebase/auth";
 
@@ -42,7 +42,7 @@ export default function RegisterForm(props) {
           <Input
             type="text"
             name="username"
-            placeholder="User Name"
+            placeholder="UserName"
             icon="user circle outline"
             //onChage={}
             //error={}
@@ -51,10 +51,10 @@ export default function RegisterForm(props) {
         <Button type="submit">Registrarse</Button>
       </Form>
       <div className="register-form__options">
-        <p>Volver</p>
+        <p onClick={() => setSelectedForm(null)}>Volver</p>
         <p>
-          Ya tienes MusicXL? {""}
-          <span>Iniciar sesion</span>
+          ¿Ya tienes MusicXL? {""}
+          <span onClick={() => setSelectedForm("login")}>Iniciar sesion</span>
         </p>
       </div>
     </div>

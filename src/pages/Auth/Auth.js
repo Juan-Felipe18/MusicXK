@@ -22,13 +22,13 @@ export default function Auth() {
   };
 
   return (
-    <div className={"auth"} style={{ backgroundImage: `url(${BgAuth})` }}>
+    <div className="auth" style={{ backgroundImage: `url(${BgAuth})` }}>
       <div className="auth__dark" />
       <div className="auth__box">
         <div className="auth__box-logo">
           <img src={LgName} alt="MusicXL" />
-          {handlerForm()}
         </div>
+        {handlerForm()}
       </div>
     </div>
   );
