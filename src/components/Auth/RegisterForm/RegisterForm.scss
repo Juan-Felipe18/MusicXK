@@ -1,0 +1,27 @@
+@import "../../../scss/index.scss";
+
+.register-form {
+    margin-top: 50px;
+
+    h1 {
+        color: $font-light;
+        text-align: center;
+        font-size: 35px;
+        padding-bottom: 20;
+    }
+
+    .ui.form {
+        .field {
+            .input {
+                margin-bottom: 5px;
+
+                input {
+                    background-color: $background-grey;
+                    border: 0;
+                    font-size: 16px;
+                    color: $font-light;
+                }
+            }
+        }
+    }
+}
