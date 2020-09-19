@@ -15,6 +15,7 @@
             .input {
                 margin-bottom: 5px;
 
+
                 input {
                     background-color: $background-grey;
                     border: 0;
@@ -28,16 +29,16 @@
                         border: 0;
                     }
 
-                    i {
-                        color: $font-light;
-                        font-size: 17px;
-                    }
+                }
 
-                    &.error {
-                        input {
-                            border-bottom: 1px solid $danger;
-                            ;
-                        }
+                i {
+                    color: $font-light;
+                    font-size: 17px;
+                }
+
+                &.error {
+                    input {
+                        border-bottom: 1px solid $danger;
                     }
                 }
             }
