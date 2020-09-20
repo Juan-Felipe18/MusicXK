@@ -22,8 +22,6 @@ export default function RegisterForm(props) {
   };
 
   const onSubmit = () => {
-    toast.success("Registro completado");
-
     setFormError({});
     let error = {};
     let formOk = true;
@@ -50,16 +48,41 @@ export default function RegisterForm(props) {
         .auth()
         .createUserWithEmailAndPassword(formData.email, formData.password)
         .then(() => {
-          console.log("Registro completado");
+          //toast.success("Registro completado");
+          changeUserName();
+          sendVerificationEmail();
         })
         .catch(() => {
-          console.log("error al crear la cuenta");
+          toast.success("Error al crear la cuenta");
         })
         .finally(() => {
           setLoading(false);
           setSelectedForm(null);
         });
     }
+  };
+
+  const changeUserName = () => {
+    firebase
+      .auth()
+      .currentUser.updateProfile({
+        displayName: formData.username,
+      })
+      .catch(() => {
+        toast.error("Error al asignar nombre de usuario");
+      });
+  };
+
+  const sendVerificationEmail = () => {
+    firebase
+      .auth()
+      .currentUser.sendEmailVerification()
+      .then(() => {
+        toast.success("Se a enviado un email de verificacion.");
+      })
+      .catch(() => {
+        toast.error("error al enviar el email de verificacion");
+      });
   };
 
   const handlerShowPass = () => {

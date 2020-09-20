@@ -13,7 +13,7 @@ export default function Auth() {
   const handlerForm = () => {
     switch (selectedForm) {
       case "login":
-        return <LoginForm />;
+        return <LoginForm setSelectedForm={setSelectedForm} />;
       case "register":
         return <RegisterForm setSelectedForm={setSelectedForm} />;
       default:
