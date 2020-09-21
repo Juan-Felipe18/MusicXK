@@ -27,7 +27,6 @@ export default function LoginForm(props) {
   };
 
   const onSubmit = () => {
-    console.log(formData);
     setFormError({});
     let errors = {};
     let formOk = true;
