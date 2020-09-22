@@ -7,15 +7,15 @@ import UserImg from "../../assets/png/user.png";
 
 import "./TopBar.scss";
 
-export default function TopBar(props) {
-  const { user } = props;
+function TopBar(props) {
+  const { user, history } = props;
 
   const logout = () => {
-    console.log("cerrar sesion");
+    firebase.auth().signOut();
   };
 
   const goBack = () => {
-    console.log("atras");
+    history.goBack();
   };
 
   return (
@@ -25,7 +25,7 @@ export default function TopBar(props) {
       </div>
       <div className="top-bar__right">
         <Link to="/settings">
-          <Image src={UserImg} />
+          <Image src={user.photoURL ? user.photoURL : UserImg} />
           {user.displayName}
         </Link>
         <Icon name="power off" onClick={logout} />
@@ -33,3 +33,5 @@ export default function TopBar(props) {
     </div>
   );
 }
+
+export default withRouter(TopBar);

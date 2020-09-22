@@ -17,6 +17,10 @@ function SideMenu(props) {
   const [contentModal, setContentModal] = useState(null);
 
   useEffect(() => {
+    setActiveMenu(location.pathname);
+  }, [location]);
+
+  useEffect(() => {
     isUserAdmin(user.uid).then((res) => {
       setUserAdmin(res);
     });
