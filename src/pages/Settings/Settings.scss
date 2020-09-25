@@ -39,11 +39,16 @@
             .ui.button {
                 background-color: $primary-color;
                 color: $font-light;
+
+                &:hover {
+                    background-color: $primary-color-hover;
+                }
             }
         }
     }
 
-    .user-email {
+    .user-email,
+    .user-password {
         display: flex !important;
         align-items: center;
         justify-content: space-between;
@@ -56,6 +61,10 @@
         .ui.button {
             background-color: $primary-color;
             color: $font-light;
+
+            &:hover {
+                background-color: $primary-color-hover;
+            }
         }
     }
 }
