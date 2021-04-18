@@ -33,7 +33,9 @@ export default function Home() {
           title="Ultimos Artistas"
           data={artists}
           folderImg="artists"
+          urlName="artista"
         />
+        <h2>Mas ...</h2>
       </div>
     </>
   );

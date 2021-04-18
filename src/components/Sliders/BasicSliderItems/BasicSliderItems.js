@@ -9,7 +9,7 @@ import "./BasicSliderItems.scss";
 import { useState } from "react";
 
 export default function BasicSliderItems(props) {
-  const { title, data, folderImg } = props;
+  const { title, data, folderImg, urlName } = props;
 
   const settings = {
     dots: false,
@@ -25,7 +25,12 @@ export default function BasicSliderItems(props) {
       <h2>{title}</h2>
       <Slider {...settings}>
         {map(data, (item) => (
-          <RenderItem key={item.id} item={item} folderImg={folderImg} />
+          <RenderItem
+            key={item.id}
+            item={item}
+            folderImg={folderImg}
+            urlName={urlName}
+          />
         ))}
       </Slider>
     </div>
@@ -33,7 +38,7 @@ export default function BasicSliderItems(props) {
 }
 
 function RenderItem(props) {
-  const { item, folderImg } = props;
+  const { item, folderImg, urlName } = props;
 
   const [img, setImg] = useState(null);
 
@@ -48,7 +53,7 @@ function RenderItem(props) {
   }, [item, folderImg]);
 
   return (
-    <Link to={`/artist/${item.id}`}>
+    <Link to={`/${urlName}/${item.id}`}>
       <div className="basic-slider-items__list-item">
         <div className="avatar" style={{ backgroundImage: `url('${img}')` }} />
         <h3>{item.name}</h3>
