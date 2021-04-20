@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import BannerArtist from "../../components/Artist/BannnerArtist";
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
 import "./Artista.scss";
@@ -15,13 +16,13 @@ function Artista(props) {
       .doc(match?.params?.id)
       .get()
       .then((response) => {
-        console.log(response);
+        setArtista(response.data());
       });
-  }, []);
-  console.log(props);
+  }, [match]);
   return (
-    <div>
-      <h1>Artista tales</h1>
+    <div className="artista">
+      {artista && <BannerArtist artista={artista} />}
+      <h2>Mas info</h2>
     </div>
   );
 }

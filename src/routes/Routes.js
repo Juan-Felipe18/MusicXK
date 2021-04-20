@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Settings from "../pages/Settings";
 import Artista from "../pages/Artista";
+import Artistas from "../pages/Artistas";
 
 export default function Routes(props) {
   const { user, setReloadApp } = props;
@@ -14,7 +15,7 @@ export default function Routes(props) {
         <Home />
       </Route>
       <Route path="/artistas" exact>
-        <h1>Artistas</h1>
+        <Artistas />
       </Route>
       <Route path="/settings" exact>
         <Settings user={user} setReloadApp={setReloadApp} />
