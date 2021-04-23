@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../../utils/Firebase";
 import { map } from "lodash";
+import {Link} from "react-router-dom"
 import "firebase/firestore";
 import "./Artistas.scss";
 import { Grid } from "semantic-ui-react";
@@ -28,7 +29,9 @@ export default function Artistas() {
       <h1>Artistas</h1>
       <Grid>
         {map(artistas, (artista) => (
-          <RenderArtista key={artista.id} artista={artista} />
+	  <Grid.Column key={artista.id} mobile={8} tablet={4} computer={3}>
+            <RenderArtista artista={artista} />
+          </Grid.Column>
         ))}
       </Grid>
     </div>
@@ -38,6 +41,7 @@ export default function Artistas() {
 function RenderArtista(props) {
   const { artista } = props;
   const [bannerUrl, setBannerUrl] = useState(null);
+
   useEffect(() => {
     firebase
       .storage()
@@ -49,8 +53,14 @@ function RenderArtista(props) {
   }, [artista]);
 
   return (
-    <div>
-      <h2>Artista</h2>
-    </div>
+    <Link to={`/artista/${artista.id}`}>
+      <div className="artistas__item">
+        <div
+          className="avatar"
+          style={{ backgroundImage: `url('${bannerUrl}')` }}
+        />
+        <h3>{artista.name}</h3>
+      </div>
+    </Link>
   );
 }
