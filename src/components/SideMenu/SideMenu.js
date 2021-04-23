@@ -4,6 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import { isUserAdmin } from "../../utils/Api";
 import BasicModal from "../Modal/BasicModal";
 import AddArtistForm from "../Artist/AddArtistForm";
+import AddAlbumForm from "../Albums/AddAlbumForm";
 
 import "./SideMenu.scss";
 
@@ -41,6 +42,11 @@ function SideMenu(props) {
       case "cancion":
         setTitleModal("Nuevo Cancion");
         setContentModal(<h2>Formulario nueva Cancion</h2>);
+        setShowModal(true);
+        break;
+      case "album":
+        setTitleModal("Nuevo Album");
+        setContentModal(<AddAlbumForm setShowModal={setShowModal} />);
         setShowModal(true);
         break;
 
@@ -82,7 +88,10 @@ function SideMenu(props) {
               <Icon name="plus square outline" />
               Nuevo Artista
             </Menu.Item>
-
+            <Menu.Item onClick={() => handlerModal("album")}>
+              <Icon name="plus square outline" />
+              Nuevo Album 
+            </Menu.Item>
             <Menu.Item onClick={() => handlerModal("cancion")}>
               <Icon name="plus square outline" />
               Nueva Cancion
